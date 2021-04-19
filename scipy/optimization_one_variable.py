@@ -9,6 +9,13 @@ import scipy.optimize as spo
 def f(x):
     y = (x**2) - (12 * x) + 20
     return y
+
+#Function to minimise for two coordinates  uses this later on in the video 
+def f(xy):
+    x = xy[0]
+    y = xy[1]
+    area = x * y
+    return -area 
     
 # Starting guess
 x_start = 2.0
@@ -19,6 +26,6 @@ result = spo.minimize(f, x_start, options={"disp": True})
 # Print result
 if result.success:
     print("Success!")
-    print(f"x = {result.x} y = {result.fun}")
+    print(f"x = {result.x} y = {result.y}")  #you wrote result.fun before
 else:
     print("Sorry, could not find a minimum.")
